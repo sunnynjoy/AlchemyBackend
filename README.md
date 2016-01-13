@@ -1,40 +1,69 @@
-Goal
-====
-Produce a simple web-app backend to complement the supplied front-end code.
 
-Mandatory Work
+A simple web-app backend to complement the front-end code.
+
+Technologies used are Java, Spring, Hibernate, Jackson, Junit, Mockito, Mysql, AngularJs, JSP
+
+Work Done
 --------------
-Fork this repository. Starting with the provided HTML, CSS, and JS, create a Java-based REST API that:
+Based on the provided HTML, CSS, and JS, a Java-based REST API has been created and i have made changes to the front end part as well:
 
 1. Saves expenses as entered to a database.
-2. Retrieves them for display on the page. 
-3. Add a new column to the table displaying the VAT amount for each expense.
-4. Alter the README to contain instructions on how to build and run your app.
 
-VAT is the UK’s sales tax. It is 20% of the value of the expense, and is included in the amount entered by the user.
+2. Retrieves them for display on the page when a new expense has been created.
+ 
+3. Added a new column to the table displaying the VAT amount for each expense and the vat amount is UK 20% value of the expense.
 
-Give our account `alchemytec` access to your fork, and send us an email when you’re done. Feel free to ask questions if anything is unclear, confusing, or just plain missing.
+4.Client side check for vat has been done.
 
-Extra Credit
-------------
-Calculate the VAT client-side as the user enters a new expense, before they save the expense to the database.
+5. written test cases for almost all the layers of the applications and covering almost all of the methods with different scenarios.
 
-Questions
----------
-##### What frameworks can I use?
-That’s entirely up to you, as long as they’re OSS. We’ll ask you to explain the choices you’ve made. Please pick something you're familiar with, as you'll need to be able to discuss it.
+Changes in the front end
+--------------------------
 
-##### What application servers can I use?
-Anyone you like, as long as it’s available OSS. You’ll have to justify your decision. We use dropwizard and Tomcat internally. Please pick something you're familiar with, as you'll need to be able to discuss it.
+1. The default.html page has been changed to default.jsp page and it is mapped properly with spring viewResolver.
 
-##### What database should I use?
-MySQL or PostgreSQL. We use MySQL in-house.
+2. Moved all the static folders to webapp folder and it is mapped to spring in WebMvcConfig.java
 
-##### What will you be grading me on?
-Elegance, robustness, understanding of the technologies you use, tests, security. 
+3. in Codingtest.min.js , few changes have been made, the changes are below
 
-##### Will I have a chance to explain my choices?
-Feel free to comment your code, or put explanations in a pull request within the repo. If we proceed to a phone interview, we’ll be asking questions about why you made the choices you made. 
+$Restangular.one("expenses").getList().then(function(expenses) 
 
-##### Why doesn’t the test include X?
-Good question. Feel free to tell us how to make the test better. Or, you know, fork it and improve it!
+has been changed to 
+
+$Restangular.all("AlchemyBackend/allExpenses").customGET().then(function(expenses) {
+
+because we are returning an object not an array.
+
+4. Similarly, the below line has been changed to support the object returned as object instead of an array
+
+$Restangular.one("expenses").post(null, $scope.newExpense).then(function() 
+
+to 
+
+$Restangular.one("AlchemyBackend/expense").post(null,$scope.newExpense).then(function() 
+
+5. The input type for the amount has been changed from text to number , because it was not accepting decimal values.
+
+
+Database Script
+------------------
+
+The db script is available is  in src/main/resources folder, please execute the script before running the application.
+
+MYSQL Property file
+------------------------
+
+Please change the mysql properties file in src/main/resources (username and password) , the EntityConfig.java picks the configuration related information from mysql.properties file.
+
+Steps to build the file
+-----------------------
+
+go to the directory where the project root is located , and then type "mvn clean install", it would execute all the test cases available in the project and once it is deployed , you can deploy it on tomcat server and run it
+
+Steps to run the project
+________________________
+
+go to "http://localhost:8080/AlchemyBackend/#/expenses" and it will be running with all the scenarios asked.
+
+Hope you like the project, thank you
+
