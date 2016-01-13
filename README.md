@@ -56,9 +56,9 @@ MYSQL Property file
 Please change the mysql properties file in src/main/resources (username and password) , the EntityConfig.java picks the configuration related information from mysql.properties file.
 
 Steps to build the file
------------------------
+-------------------------
 
-go to the directory where the project root is located , and then type "mvn clean install", it would execute all the test cases available in the project and once it is deployed , you can deploy it on tomcat server and run it
+Go to the directory where the project root is located , and then type "mvn clean install", it would execute all the test cases available in the project and once it is deployed , you can deploy it on tomcat server and run it
 
 Steps to run the project
 ________________________
