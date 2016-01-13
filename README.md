@@ -13,7 +13,7 @@ Based on the provided HTML, CSS, and JS, a Java-based REST API has been created 
  
 3. Added a new column to the table displaying the VAT amount for each expense and the vat amount is UK 20% value of the expense.
 
-4.Client side check for vat has been done.
+4. Client side check for vat has been done.
 
 5. written test cases for almost all the layers of the applications and covering almost all of the methods with different scenarios.
 
