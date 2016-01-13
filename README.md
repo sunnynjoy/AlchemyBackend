@@ -26,21 +26,21 @@ Changes in the front end
 
 3. in Codingtest.min.js , few changes have been made, the changes are below
 
-$Restangular.one("expenses").getList().then(function(expenses) 
+     $Restangular.one("expenses").getList().then(function(expenses) 
 
-has been changed to 
+    has been changed to 
 
-$Restangular.all("AlchemyBackend/allExpenses").customGET().then(function(expenses) {
+     $Restangular.all("AlchemyBackend/allExpenses").customGET().then(function(expenses) {
 
-because we are returning an object not an array.
+    because we are returning an object not an array.
 
 4. Similarly, the below line has been changed to support the object returned as object instead of an array
 
-$Restangular.one("expenses").post(null, $scope.newExpense).then(function() 
+     $Restangular.one("expenses").post(null, $scope.newExpense).then(function() 
 
-to 
+    to 
 
-$Restangular.one("AlchemyBackend/expense").post(null,$scope.newExpense).then(function() 
+     $Restangular.one("AlchemyBackend/expense").post(null,$scope.newExpense).then(function() 
 
 5. The input type for the amount has been changed from text to number , because it was not accepting decimal values.
 
