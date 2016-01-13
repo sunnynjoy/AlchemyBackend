@@ -1,0 +1,14 @@
+create database alchemyExpense;
+
+use alchemyExpense;
+
+drop table if exists expense;
+
+create table expense(
+   expenseId int not null auto_increment,
+   date Date not null,
+   amount float(2,2),
+   primary key (expenseId)
+ );
+
+
