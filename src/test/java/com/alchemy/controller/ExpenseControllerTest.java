@@ -176,7 +176,7 @@ public class ExpenseControllerTest {
 	}
 
 	/**
-	 * run the whole test
+	 * run the whole test for the controller
 	 */
 	public static void main(String[] args) {
 		new org.junit.runner.JUnitCore().run(ExpenseControllerTest.class);
